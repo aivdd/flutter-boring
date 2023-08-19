@@ -1,6 +1,16 @@
+# flutter_boring clone
+Jika Anda telah mengkloning (clone) sebuah proyek Flutter dari repositori git dan ingin memastikan bahwa semua dependensi yang diperlukan telah terinstal, Anda dapat menjalankan perintah berikut dalam terminal: `flutter pub get` atau langsung ->
+
+Untuk dependensi Android:
+`flutter pub get
+flutter pub run flutter_launcher_icons:main
+flutter pub run flutter_native_splash:create
+flutter pub run build_runner build
+flutter run`
+
 # flutter_boring
 
-A new Flutter project.
+A new Flutter project for cari sparing.
 
 ## Getting Started
 
