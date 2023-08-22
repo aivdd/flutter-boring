@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "285947231298",
+    "firebase_url": "https://boring-f8138-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "boring-f8138",
+    "storage_bucket": "boring-f8138.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285947231298:android:929af97255b848f60f81db",
+        "android_client_info": {
+          "package_name": "com.example.flutter_boring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285947231298-ukrus8ch529rru02e7vp88gqua275utq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDOL9iviORNgjuhBVCRgH00uvtw-Uig1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285947231298-ukrus8ch529rru02e7vp88gqua275utq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
