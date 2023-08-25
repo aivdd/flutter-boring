@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_boring/screen/history.dart';
 import 'package:flutter_boring/screen/home.dart';
+import 'package:flutter_boring/screen/spar_list.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -52,9 +53,6 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Boring Application'),
-      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
