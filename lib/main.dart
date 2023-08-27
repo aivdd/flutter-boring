@@ -21,12 +21,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Boring',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
-          useMaterial3: true,
-        ),
-        home: MyBottomTabBar(),);
+      title: 'Boring',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
+        useMaterial3: true,
+      ),
+      home: MyBottomTabBar(),
+    );
   }
 }
 
@@ -41,7 +42,6 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
   final List<Widget> _pages = [
     Home(),
     History(),
- 
   ];
 
   void _onTabTapped(int index) {
@@ -55,6 +55,9 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Color.fromARGB(255, 255, 255, 255),
+        unselectedItemColor: Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: Color.fromARGB(255, 0, 46, 102),
         currentIndex: _selectedIndex,
         onTap: _onTabTapped,
         items: [
@@ -66,7 +69,6 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
             icon: Icon(Icons.history),
             label: 'Histori',
           ),
-          
         ],
       ),
     );
