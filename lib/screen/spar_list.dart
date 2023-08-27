@@ -12,9 +12,10 @@ class _SparListState extends State<SparList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 14, 52, 84),
         title: Text('Cari Sparring'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back_ios_new),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -26,7 +27,7 @@ class _SparListState extends State<SparList> {
             Card(
               elevation: 5,
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -35,26 +36,73 @@ class _SparListState extends State<SparList> {
                         Container(
                           width: 50,
                           height: 50,
-                          color: Colors.blue,
-                          child: Image(image:AssetImage("image/kecil1.jpeg")),
+                          child: Icon(Icons.groups),
                         ),
+
                         SizedBox(width: 10),
                         Text(
                           'Pb NewJeans',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Jam 8 sampai 10',
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          child: Icon(Icons.calendar_today),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                        'Jam 8 - 10',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
                     ),
+
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          child: Icon(Icons.location_on),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                        'GOR Winaraga, Bekasi, Jawa Barat',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          child: Icon(Icons.price_change),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                        'Rp. 40.000',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+
                     SizedBox(height: 8),
                     Align(
                       alignment: Alignment.bottomRight,
-                      child: ElevatedButton(
+                      child: ElevatedButton( 
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 14, 52, 84),
+                        ),
                         child: Text('AJAK'),
                       ),
                     ),
@@ -62,11 +110,12 @@ class _SparListState extends State<SparList> {
                 ),
               ),
             ),
-            SizedBox(height: 5),
+
+            SizedBox(height: 1),
             Card(
               elevation: 5,
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -75,26 +124,74 @@ class _SparListState extends State<SparList> {
                         Container(
                           width: 50,
                           height: 50,
-                          color: Colors.green,
-                          child: Image(image:AssetImage("image/kecil1.jpeg")),
+                          
+                          child: Icon(Icons.group_rounded),
                         ),
+
                         SizedBox(width: 10),
                         Text(
-                          'PB NewJeans',
-                          style: TextStyle(fontSize: 16),
+                          'Pb NewJeans',
+                          style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Jam 8 - 10',
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          child: Icon(Icons.calendar_today),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                        'Jam 11 - 12',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
                     ),
+
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          child: Icon(Icons.location_on),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                        'GOR Windah Batubara',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          child: Icon(Icons.price_change),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                        'Rp. 20.000',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+
                     SizedBox(height: 8),
                     Align(
                       alignment: Alignment.bottomRight,
-                      child: ElevatedButton(
+                      child: ElevatedButton( 
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 14, 52, 84),
+                        ),
                         child: Text('AJAK'),
                       ),
                     ),
@@ -110,7 +207,7 @@ class _SparListState extends State<SparList> {
           // Aksi yang dijalankan saat tombol tambah ditekan
         },
         child: Icon(Icons.add),
-        backgroundColor: Colors.blue, // Ubah warna latar belakang sesuai kebutuhan
+        backgroundColor: Color.fromARGB(255, 14, 52, 84), // Ubah warna latar belakang sesuai kebutuhan
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
