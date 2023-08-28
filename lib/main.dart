@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_boring/screen/history.dart';
 import 'package:flutter_boring/screen/home.dart';
+import 'package:flutter_boring/screen/spar_list.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -54,6 +55,9 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Color.fromARGB(255, 255, 255, 255),
+        unselectedItemColor: Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: Color.fromARGB(255, 0, 46, 102),
         currentIndex: _selectedIndex,
         onTap: _onTabTapped,
         items: [

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -327,7 +327,7 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                    ],
+                    ], // <-- Missing closing bracket
                   ),
                 ),
               );
