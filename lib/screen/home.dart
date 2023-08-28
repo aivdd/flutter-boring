@@ -26,11 +26,11 @@ class _HomeState extends State<Home> {
                           Container(
                             width: double.infinity,
                             height: 160,
-                            color: Colors.blue[900],
+                            color: Color.fromARGB(255, 0, 46, 102),
                             child: Padding(
-                              padding: EdgeInsets.only(top: 50),
+                              padding: EdgeInsets.only(top: 50, left: 40),
                               child: Text(
-                                'Hallo XYZ',
+                                'Hallo, Antonn',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: AssetImage('images/ginting.jpg'),
+                            image: AssetImage('assets/images/ginting.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -102,19 +102,13 @@ class _HomeState extends State<Home> {
                       Container(
                         height: 40,
                         margin: EdgeInsets.symmetric(horizontal: 35.0),
-                        decoration: BoxDecoration(
-                          color: Colors.blue[900],
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'CARI SPARING',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text("CARI SPARING"),
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 0, 46, 102),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15))),
                         ),
                       ),
                       SizedBox(height: 20),

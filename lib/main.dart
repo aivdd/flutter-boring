@@ -56,7 +56,7 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Color.fromARGB(255, 255, 255, 255),
-        unselectedItemColor: Color.fromARGB(255, 0, 0, 0),
+        unselectedItemColor: Color.fromARGB(255, 132, 130, 130),
         backgroundColor: Color.fromARGB(255, 0, 46, 102),
         currentIndex: _selectedIndex,
         onTap: _onTabTapped,
