@@ -12,8 +12,8 @@ class SparingService {
   Stream<List<Sparing>> getSparingsStream() {
     return sparingCollection.snapshots().map((snapshot) {
       return snapshot.docs
-          .map((doc) => Sparing.fromFirestore(
-              doc as QueryDocumentSnapshot<Map<String, dynamic>>, null))
+          .map((doc) => Sparing.fromFirestore(doc))
+          .where((sparing) => sparing.guestName == null)
           .toList();
     });
   }

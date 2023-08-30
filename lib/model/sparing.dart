@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Sparing {
+  final String? docId;
   final String? hostName;
   final String? playingTime;
   final String? location;
   final String? guestName;
 
   Sparing({
+    this.docId,
     this.hostName,
     this.playingTime,
     this.location,
@@ -14,15 +16,15 @@ class Sparing {
   });
 
   factory Sparing.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? options,
+    DocumentSnapshot snapshot,
   ) {
-    final data = snapshot.data();
+    final data = snapshot.data() as Map<String, dynamic>;
     return Sparing(
-      hostName: data?['hostName'],
-      playingTime: data?['playingTime'],
-      location: data?['location'],
-      guestName: data?['guestName'],
+      docId: snapshot.id,
+      hostName: data['hostName'],
+      playingTime: data['playingTime'],
+      location: data['location'],
+      guestName: data['guestName'],
     );
   }
 
@@ -31,7 +33,7 @@ class Sparing {
       if (hostName != null) "hostName": hostName,
       if (playingTime != null) "playingTime": playingTime,
       if (location != null) "location": location,
-      if (guestName != null) "guestName": guestName,
+      "guestName": guestName,
     };
   }
 }
