@@ -13,9 +13,9 @@ class _SparListState extends State<SparList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 14, 52, 84),
-        title: Text('Cari Sparring'),
+        title: Text('Cari Sparring', style: TextStyle(color: Colors.white)),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white,),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -25,6 +25,7 @@ class _SparListState extends State<SparList> {
         child: Column(
           children: [
             Card(
+              color: Colors.white,
               elevation: 5,
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -103,7 +104,7 @@ class _SparListState extends State<SparList> {
                         style: ElevatedButton.styleFrom(
                           primary: Color.fromARGB(255, 14, 52, 84),
                         ),
-                        child: Text('AJAK'),
+                        child: Text('AJAK', style: TextStyle(color: Colors.white)),
                       ),
                     ),
                   ],
@@ -113,6 +114,7 @@ class _SparListState extends State<SparList> {
 
             SizedBox(height: 1),
             Card(
+              color: Colors.white,
               elevation: 5,
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -192,7 +194,7 @@ class _SparListState extends State<SparList> {
                         style: ElevatedButton.styleFrom(
                           primary: Color.fromARGB(255, 14, 52, 84),
                         ),
-                        child: Text('AJAK'),
+                        child: Text('AJAK', style: TextStyle(color: Colors.white)),
                       ),
                     ),
                   ],
@@ -206,8 +208,8 @@ class _SparListState extends State<SparList> {
         onPressed: () {
           // Aksi yang dijalankan saat tombol tambah ditekan
         },
-        child: Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 14, 52, 84), // Ubah warna latar belakang sesuai kebutuhan
+        child: Icon(Icons.add, color: Colors.white),
+        backgroundColor: Color.fromARGB(255, 14, 52, 84),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
