@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boring/screen/spar_list.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -103,7 +104,13 @@ class _HomeState extends State<Home> {
                         height: 40,
                         margin: const EdgeInsets.symmetric(horizontal: 35.0),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return SparList();
+                              },
+                            ));
+                          },
                           child: const Text("CARI SPARING"),
                           style: ElevatedButton.styleFrom(
                               primary: const Color.fromARGB(255, 0, 46, 102),
