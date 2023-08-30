@@ -41,8 +41,8 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    TambahSpar(),
-    SparList(),
+    Home(),
+    History(),
   ];
 
   void _onTabTapped(int index) {
