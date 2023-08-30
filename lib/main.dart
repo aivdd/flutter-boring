@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_boring/screen/history.dart';
 import 'package:flutter_boring/screen/home.dart';
 import 'package:flutter_boring/screen/spar_list.dart';
+import 'package:flutter_boring/screen/tambah_spar.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -40,8 +41,8 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    Home(),
-    History(),
+    TambahSpar(),
+    SparList(),
   ];
 
   void _onTabTapped(int index) {
