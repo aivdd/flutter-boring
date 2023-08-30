@@ -202,11 +202,16 @@ class _SparListState extends State<SparList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) {
-              return TambahSpar();
-            },
-          ));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TambahSpar()),
+          ).then((result) {
+            if (result == true) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Sparing berhasil dibuat')),
+              );
+            }
+          });
         },
         child: Icon(Icons.add, color: Colors.white),
         backgroundColor: Color.fromARGB(255, 14, 52, 84),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boring/service/sparing.dart';
+import 'package:flutter_boring/model/sparing.dart';
+import 'package:intl/intl.dart';
 
 class TambahSpar extends StatefulWidget {
   const TambahSpar({super.key});
@@ -8,7 +11,33 @@ class TambahSpar extends StatefulWidget {
 }
 
 class _TambahSparState extends State<TambahSpar> {
-  TextEditingController dateInputController = TextEditingController();
+  final TextEditingController hostNameController = TextEditingController();
+  final TextEditingController dateInputController = TextEditingController();
+  final TextEditingController locationController = TextEditingController();
+  final SparingService _sparingService = SparingService();
+
+  Future<void> _kirimDataKeFirestore() async {
+    final String hostName = hostNameController.text;
+    final String location = locationController.text;
+    final String dateTime = dateInputController.text;
+
+    Sparing newSparing = Sparing(
+      hostName: hostName,
+      playingTime: dateTime,
+      location: location,
+      guestName: null,
+    );
+
+    try {
+      await _sparingService.addSparing(newSparing);
+      Navigator.pop(context, true);
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Terjadi kesalahan: $error')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +67,7 @@ class _TambahSparState extends State<TambahSpar> {
               Column(
                 children: [
                   TextFormField(
+                    controller: hostNameController,
                     decoration: InputDecoration(
                         fillColor: Color(0xffF1F0F5),
                         filled: true,
@@ -74,20 +104,44 @@ class _TambahSparState extends State<TambahSpar> {
                       controller: dateInputController,
                       readOnly: true,
                       onTap: () async {
+                        DateTime now = DateTime.now();
+                        DateTime initialDate =
+                            DateTime(now.year, now.month, now.day);
+
                         DateTime? pickedDate = await showDatePicker(
-                            context: context,
-                            initialDate: DateTime.now(),
-                            firstDate: DateTime(1950),
-                            lastDate: DateTime(2050));
+                          context: context,
+                          initialDate: initialDate,
+                          firstDate: DateTime(1950),
+                          lastDate: DateTime(2050),
+                        );
 
                         if (pickedDate != null) {
-                          dateInputController.text = pickedDate.toString();
+                          TimeOfDay? pickedTime = await showTimePicker(
+                            context: context,
+                            initialTime: TimeOfDay.now(),
+                          );
+
+                          if (pickedTime != null) {
+                            DateTime selectedDateTime = DateTime(
+                              pickedDate.year,
+                              pickedDate.month,
+                              pickedDate.day,
+                              pickedTime.hour,
+                              pickedTime.minute,
+                            );
+
+                            String formattedDate =
+                                DateFormat('dd MMM yyyy HH:mm')
+                                    .format(selectedDateTime);
+                            dateInputController.text = formattedDate;
+                          }
                         }
                       },
                     ),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
+                    controller: locationController,
                     decoration: InputDecoration(
                         fillColor: Color(0xffF1F0F5),
                         filled: true,
@@ -106,7 +160,7 @@ class _TambahSparState extends State<TambahSpar> {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: _kirimDataKeFirestore,
                       style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 14, 52, 84),
                       ),
