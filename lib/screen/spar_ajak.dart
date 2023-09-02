@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boring/screen/activity_detail.dart';
 
 import '../model/sparing.dart';
 import '../service/sparing.dart';
@@ -88,9 +89,11 @@ class _SparAjakState extends State<SparAjak> {
 
       await SparingService().updateSparing(docId, newSparing);
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Guest name updated successfully')),
-      );
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ActivityDetail(docId: docId),
+          ));
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to update guest name: $error')),

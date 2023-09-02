@@ -5,10 +5,6 @@ class SparingService {
   final CollectionReference sparingCollection =
       FirebaseFirestore.instance.collection('sparing');
 
-  Future<void> addSparing(Sparing sparing) async {
-    await sparingCollection.add(sparing.toFirestore());
-  }
-
   Stream<List<Sparing>> getSparingsStream() {
     return sparingCollection.snapshots().map((snapshot) {
       return snapshot.docs
@@ -16,6 +12,20 @@ class SparingService {
           .where((sparing) => sparing.guestName == null)
           .toList();
     });
+  }
+
+  Future<List<Sparing>> getSparingActivity() async {
+    final querySnapshot = await sparingCollection.get();
+    return querySnapshot.docs
+        .map((doc) {
+          return Sparing.fromFirestore(doc);
+        })
+        .where((sparing) => sparing.guestName != null)
+        .toList();
+  }
+
+  Future<void> addSparing(Sparing sparing) async {
+    await sparingCollection.add(sparing.toFirestore());
   }
 
   Future<void> updateSparing(String docId, Sparing newSparing) async {

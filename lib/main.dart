@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_boring/screen/history.dart';
+import 'package:flutter_boring/screen/activity.dart';
 import 'package:flutter_boring/screen/home.dart';
 import 'firebase_options.dart';
 
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Boring',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 0, 46, 102)),
         useMaterial3: true,
       ),
       home: MyBottomTabBar(),
@@ -40,7 +41,7 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
 
   final List<Widget> _pages = [
     Home(),
-    History(),
+    Activity(),
   ];
 
   void _onTabTapped(int index) {
@@ -65,8 +66,8 @@ class _MyBottomTabBarState extends State<MyBottomTabBar> {
             label: 'Beranda',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'Histori',
+            icon: Icon(Icons.live_tv_rounded),
+            label: 'Activity',
           ),
         ],
       ),
