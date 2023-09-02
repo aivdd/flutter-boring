@@ -12,19 +12,25 @@ class TambahSpar extends StatefulWidget {
 
 class _TambahSparState extends State<TambahSpar> {
   final TextEditingController hostNameController = TextEditingController();
+  final TextEditingController olahragaController = TextEditingController();
   final TextEditingController dateInputController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
+  final TextEditingController hargaController = TextEditingController();
   final SparingService _sparingService = SparingService();
 
   Future<void> _kirimDataKeFirestore() async {
     final String hostName = hostNameController.text;
-    final String location = locationController.text;
+    final String olahraga = olahragaController.text;
     final String dateTime = dateInputController.text;
+    final String location = locationController.text;
+    final String harga = hargaController.text;
 
     Sparing newSparing = Sparing(
       hostName: hostName,
+      olahraga: olahraga,
       playingTime: dateTime,
       location: location,
+      harga: harga,
       guestName: null,
     );
 
@@ -40,6 +46,16 @@ class _TambahSparState extends State<TambahSpar> {
 
   @override
   Widget build(BuildContext context) {
+    const List<String> list = <String>[
+      'Futsal',
+      'Badminton',
+      'Volley',
+      'Tennis'
+    ];
+
+    // ignore: unused_local_variable
+    String dropDownValue = list.first;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 14, 52, 84),
@@ -59,13 +75,45 @@ class _TambahSparState extends State<TambahSpar> {
         child: Center(
           child: Column(
             children: [
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Masukkan Data Anda"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Column(
                 children: [
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: DropdownMenu<String>(
+                      controller: olahragaController,
+                      initialSelection: list.first,
+                      onSelected: (String? value) {
+                        setState(() {
+                          dropDownValue = value!;
+                        });
+                      },
+                      dropdownMenuEntries:
+                          list.map<DropdownMenuEntry<String>>((String value) {
+                        return DropdownMenuEntry<String>(
+                          value: value,
+                          label: value,
+                        );
+                      }).toList(),
+                      inputDecorationTheme: InputDecorationTheme(
+                        fillColor: const Color(0xffF1F0F5),
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: const BorderSide(),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: const BorderSide(),
+                        ),
+                      ),
+                    ),
+                  ),
                   TextFormField(
                     controller: hostNameController,
                     decoration: InputDecoration(
@@ -155,6 +203,23 @@ class _TambahSparState extends State<TambahSpar> {
                         ),
                         labelText: 'Lokasi *',
                         hintText: "GOR Jayapura, Bekasi, Jawa Barat"),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    controller: hargaController,
+                    decoration: InputDecoration(
+                        fillColor: Color(0xffF1F0F5),
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(),
+                        ),
+                        labelText: 'Harga *',
+                        hintText: "70.000"),
                   ),
                   SizedBox(height: 20),
                   Align(

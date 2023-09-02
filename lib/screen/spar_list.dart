@@ -61,9 +61,19 @@ class _SparListState extends State<SparList> {
                           SizedBox(width: 10),
                           Text(
                             sparring.hostName ?? '',
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          const Text(
+                            ' | ',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
+                          Text(
+                            sparring.olahraga ?? '',
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          )
                         ],
                       ),
                       SizedBox(height: 10),
@@ -106,7 +116,7 @@ class _SparListState extends State<SparList> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            sparring.guestName ?? '',
+                            sparring.harga ?? '',
                             style: TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],
