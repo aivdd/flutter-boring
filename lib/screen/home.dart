@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter_boring/screen/kayuma.dart';
+import 'ferry.dart';
+import 'taufik.dart';
+import 'gideon.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -26,11 +31,11 @@ class _HomeState extends State<Home> {
                           Container(
                             width: double.infinity,
                             height: 160,
-                            color: Color.fromARGB(255, 0, 46, 102),
+                            color: Color.fromARGB(255, 1, 35, 86),
                             child: Padding(
                               padding: EdgeInsets.only(top: 50, left: 40),
                               child: Text(
-                                'Hallo, Antonn',
+                                'Hallo XYZ',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -93,7 +98,7 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: AssetImage('assets/images/ginting.jpg'),
+                            image: AssetImage('images/ginting.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -113,7 +118,7 @@ class _HomeState extends State<Home> {
                       ),
                       SizedBox(height: 20),
                       Container(
-                        height: 200,
+                        height: 300,
                         color: Colors.grey[200],
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,58 +152,254 @@ class _HomeState extends State<Home> {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 8),
-                                    width: 160,
-                                    height: 120,
-                                    child: Card(
-                                      color: Colors.grey[300],
-                                      child: ListTile(
-                                        title: Text('Gor Gideon'),
-                                        subtitle: Text('Ciangsana'),
-                                        onTap: () {
-                                          Navigator.pop(context);
-                                        },
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => DetailPage()),
+                                      );
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 8),
+                                      width: 160,
+                                      height: 200,
+                                      child: Card(
+                                        color: Colors.grey[300],
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            // Gambar
+                                            Container(
+                                              width: 140,
+                                              height: 115,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  image: AssetImage(
+                                                      'images/gideon.jpg'),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 10),
+                                            Text(
+                                              'Gor Gideon',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              'Ciangsana',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Mulai Dari Rp. 50.000',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: const Color.fromARGB(
+                                                    255, 2, 2, 2),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 8),
-                                    width: 160,
-                                    height: 120,
-                                    child: Card(
-                                      color: Colors.grey[300],
-                                      child: ListTile(
-                                        title: Text('Taufik Hall'),
-                                        subtitle: Text('Kelapa dua wetan'),
+
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                TaufikDetail()),
+                                      );
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 8),
+                                      width: 160,
+                                      height: 200,
+                                      child: Card(
+                                        color: Colors.grey[300],
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            // Gambar
+                                            Container(
+                                              width: 140,
+                                              height: 115,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  image: AssetImage(
+                                                      'images/gor1.jpeg'),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 10),
+                                            Text(
+                                              'Taufik Arena',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              'Cibubur',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Mulai Dari Rp. 40.000',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: const Color.fromARGB(
+                                                    255, 2, 2, 2),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 8),
-                                    width: 160,
-                                    height: 120,
-                                    child: Card(
-                                      color: Colors.grey[300],
-                                      child: ListTile(
-                                        title: Text('Fajar Hall'),
-                                        subtitle: Text('Bandung'),
+
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => KayumaPage()),
+                                      );
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 8),
+                                      width: 160,
+                                      height: 200,
+                                      child: Card(
+                                        color: Colors.grey[300],
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            // Gambar
+                                            Container(
+                                              width: 140,
+                                              height: 115,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  image: AssetImage(
+                                                      'images/jatiasih.jpeg'),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 10),
+                                            Text(
+                                              'Gor Kayuma',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              'Jatiasih',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Mulai Dari Rp. 35.000',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: const Color.fromARGB(
+                                                    255, 2, 2, 2),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 8),
-                                    width: 160,
-                                    height: 120,
-                                    child: Card(
-                                      color: Colors.grey[300],
-                                      child: ListTile(
-                                        title: Text('Venue 2'),
-                                        subtitle: Text('Subtitle 2'),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => FerryPage()),
+                                      );
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 8),
+                                      width: 160,
+                                      height: 200,
+                                      child: Card(
+                                        color: Colors.grey[300],
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            // Gambar
+                                            Container(
+                                              width: 140,
+                                              height: 115,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  image: AssetImage(
+                                                      'images/gideon2.jpg'),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 10),
+                                            Text(
+                                              'Gor Ferry Jaya',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              'Cipendawa',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Mulai Dari Rp. 40.000',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: const Color.fromARGB(
+                                                    255, 2, 2, 2),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -321,7 +522,7 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                    ], // <-- Missing closing bracket
+                    ],
                   ),
                 ),
               );
