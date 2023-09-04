@@ -49,8 +49,13 @@ android {
         applicationId "com.example.flutter_boring"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+<<<<<<< HEAD
         minSdkVersion 20
         targetSdkVersion 32
+=======
+        minSdkVersion 19
+        targetSdkVersion 28
+>>>>>>> 01eb6e056b810118363943528bd4b46325294a6e
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

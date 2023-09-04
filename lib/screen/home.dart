@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter/gestures.dart';
 import 'package:flutter_boring/screen/kayuma.dart';
 import 'ferry.dart';
 import 'taufik.dart';
 import 'gideon.dart';
+=======
+import 'package:flutter_boring/screen/spar_list.dart';
+>>>>>>> 01eb6e056b810118363943528bd4b46325294a6e
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -31,8 +35,13 @@ class _HomeState extends State<Home> {
                           Container(
                             width: double.infinity,
                             height: 160,
+<<<<<<< HEAD
                             color: Color.fromARGB(255, 1, 35, 86),
                             child: Padding(
+=======
+                            color: Color.fromARGB(255, 0, 46, 102),
+                            child: const Padding(
+>>>>>>> 01eb6e056b810118363943528bd4b46325294a6e
                               padding: EdgeInsets.only(top: 50, left: 40),
                               child: Text(
                                 'Hallo XYZ',
@@ -57,7 +66,7 @@ class _HomeState extends State<Home> {
                                     height: 50,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.all(
+                                      borderRadius: const BorderRadius.all(
                                           Radius.circular(20.0)),
                                       boxShadow: [
                                         BoxShadow(
@@ -71,7 +80,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   Container(
                                     height: 50,
-                                    child: TextField(
+                                    child: const TextField(
                                       decoration: InputDecoration(
                                         hintText: 'Search...',
                                         prefixIcon: Icon(Icons.search),
@@ -91,42 +100,47 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Container(
                         height: 150,
-                        margin: EdgeInsets.symmetric(horizontal: 35.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 35.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage('assets/images/ginting.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Container(
                         height: 40,
-                        margin: EdgeInsets.symmetric(horizontal: 35.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 35.0),
                         child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("CARI SPARING"),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return SparList();
+                              },
+                            ));
+                          },
+                          child: const Text("CARI SPARING"),
                           style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 0, 46, 102),
+                              primary: const Color.fromARGB(255, 0, 46, 102),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15))),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Container(
                         height: 300,
                         color: Colors.grey[200],
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 16),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
+                            const SizedBox(height: 16),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
