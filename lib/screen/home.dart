@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:flutter/gestures.dart';
 import 'package:flutter_boring/screen/kayuma.dart';
 import 'ferry.dart';
+import 'package:flutter_boring/screen/tambah_spar.dart';
 import 'taufik.dart';
 import 'gideon.dart';
-=======
 import 'package:flutter_boring/screen/spar_list.dart';
->>>>>>> 01eb6e056b810118363943528bd4b46325294a6e
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -35,16 +33,11 @@ class _HomeState extends State<Home> {
                           Container(
                             width: double.infinity,
                             height: 160,
-<<<<<<< HEAD
                             color: Color.fromARGB(255, 1, 35, 86),
                             child: Padding(
-=======
-                            color: Color.fromARGB(255, 0, 46, 102),
-                            child: const Padding(
->>>>>>> 01eb6e056b810118363943528bd4b46325294a6e
                               padding: EdgeInsets.only(top: 50, left: 40),
                               child: Text(
-                                'Hallo XYZ',
+                                'Hallo CUKURUKUKUKKK',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -66,7 +59,7 @@ class _HomeState extends State<Home> {
                                     height: 50,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: const BorderRadius.all(
+                                      borderRadius: BorderRadius.all(
                                           Radius.circular(20.0)),
                                       boxShadow: [
                                         BoxShadow(
@@ -80,7 +73,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   Container(
                                     height: 50,
-                                    child: const TextField(
+                                    child: TextField(
                                       decoration: InputDecoration(
                                         hintText: 'Search...',
                                         prefixIcon: Icon(Icons.search),
@@ -100,47 +93,53 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20),
                       Container(
                         height: 150,
-                        margin: const EdgeInsets.symmetric(horizontal: 35.0),
+                        margin: EdgeInsets.symmetric(horizontal: 35.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
+                          image: DecorationImage(
                             image: AssetImage('assets/images/ginting.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20),
                       Container(
                         height: 40,
-                        margin: const EdgeInsets.symmetric(horizontal: 35.0),
+                        margin: EdgeInsets.symmetric(horizontal: 35.0),
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return SparList();
-                              },
-                            ));
+                            // Buat Pindah Halaman
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return SparList();
+                                },
+                              ),
+                            );
                           },
-                          child: const Text("CARI SPARING"),
+                          child: Text("CARI SPARING"),
                           style: ElevatedButton.styleFrom(
-                              primary: const Color.fromARGB(255, 0, 46, 102),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15))),
+                            primary: Color.fromARGB(255, 0, 46, 102),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20),
                       Container(
                         height: 300,
                         color: Colors.grey[200],
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 16),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
+                            SizedBox(height: 16),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -186,7 +185,7 @@ class _HomeState extends State<Home> {
                                           children: [
                                             // Gambar
                                             Container(
-                                              width: 140,
+                                              width: 120,
                                               height: 115,
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.rectangle,
@@ -250,7 +249,7 @@ class _HomeState extends State<Home> {
                                           children: [
                                             // Gambar
                                             Container(
-                                              width: 140,
+                                              width: 130,
                                               height: 115,
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.rectangle,
@@ -318,7 +317,7 @@ class _HomeState extends State<Home> {
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
-                                                    BorderRadius.circular(30),
+                                                    BorderRadius.circular(40),
                                                 image: DecorationImage(
                                                   fit: BoxFit.contain,
                                                   image: AssetImage(
@@ -497,35 +496,22 @@ class _HomeState extends State<Home> {
                                       color: Colors.grey[300],
                                       child: ListTile(
                                         leading: CircleAvatar(child: Text('B')),
-                                        title: Text('Bogor Club'),
-                                        subtitle: Text('Bogor'),
+                                        title: Text('Anak Medan '),
+                                        subtitle: Text('Toba'),
                                       ),
                                     ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(
                                         vertical: 8, horizontal: 8),
-                                    width: 260,
+                                    width: 160,
                                     height: 120,
                                     child: Card(
                                       color: Colors.grey[300],
                                       child: ListTile(
-                                        leading: Container(
-                                          width: 80,
-                                          height: 80,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: AssetImage(
-                                                  'assets/images/gideon.jpg'),
-                                            ),
-                                          ),
-                                        ),
-                                        title: Text('Depok Club'),
-                                        subtitle: Text('Depok'),
-                                        contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 10, vertical: 5),
+                                        leading: CircleAvatar(child: Text('B')),
+                                        title: Text('Bogor Club'),
+                                        subtitle: Text('Bogor'),
                                       ),
                                     ),
                                   ),

@@ -122,8 +122,8 @@ class _TaufikDetailState extends State<TaufikDetail> {
                         GoogleMap(
                           initialCameraPosition: CameraPosition(
                             target: LatLng(
-                              -6.355924335883751,
-                              106.95498093497488,
+                              -6.340704576796146,
+                              106.87650796565514,
                             ), // Koordinat San Francisco
                             zoom: 15,
                           ),
@@ -131,8 +131,8 @@ class _TaufikDetailState extends State<TaufikDetail> {
                             Marker(
                               markerId: MarkerId("marker_id"),
                               position: LatLng(
-                                -6.355924335883751,
-                                106.95498093497488,
+                                -6.340704576796146,
+                                106.87650796565514,
                               ),
                               infoWindow:
                                   InfoWindow(title: "Taufik Hidayat Arena"),

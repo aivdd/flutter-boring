@@ -108,15 +108,14 @@ class _FerryPageState extends State<FerryPage> {
             ),
             SizedBox(height: 20),
             GestureDetector(
-              // Wrap the GoogleMap with GestureDetector
-              onVerticalDragUpdate: (_) {}, // Prevent vertical scrolling
+              onVerticalDragUpdate: (_) {},
               child: Padding(
-                padding: EdgeInsets.all(16.0), // Adjust padding as needed
+                padding: EdgeInsets.all(16.0),
                 child: Card(
-                  elevation: 4.0, // Adjust elevation as needed
+                  elevation: 4.0,
                   child: Container(
-                    width: double.infinity, // Adjust width as needed
-                    height: 300.0, // Adjust height as needed
+                    width: double.infinity,
+                    height: 300.0,
                     child: Stack(
                       children: [
                         GoogleMap(
@@ -142,10 +141,8 @@ class _FerryPageState extends State<FerryPage> {
                           top: 0,
                           left: 0,
                           child: Container(
-                            padding:
-                                EdgeInsets.all(8.0), // Adjust padding as needed
-                            color: const Color.fromARGB(255, 0, 46,
-                                102), // Adjust the background color as needed
+                            padding: EdgeInsets.all(8.0),
+                            color: const Color.fromARGB(255, 0, 46, 102),
                             child: Text(
                               'Lokasi',
                               style: TextStyle(
@@ -255,20 +252,6 @@ class CardWithIcons extends StatelessWidget {
                   ),
               ],
             ),
-            if (rating != null)
-              Row(
-                children: [
-                  Icon(Icons.star, color: Colors.amber),
-                  SizedBox(width: 5),
-                  Text(
-                    rating.toString(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
             if (nextText != null && nextIcon != null) SizedBox(height: 10),
             Row(
               children: [

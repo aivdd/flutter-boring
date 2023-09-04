@@ -4,7 +4,7 @@ import 'package:flutter_boring/model/sparing.dart';
 import 'package:intl/intl.dart';
 
 class TambahSpar extends StatefulWidget {
-  const TambahSpar({super.key});
+  const TambahSpar({Key? key}) : super(key: key);
 
   @override
   State<TambahSpar> createState() => _TambahSparState();
@@ -53,7 +53,6 @@ class _TambahSparState extends State<TambahSpar> {
       'Tennis'
     ];
 
-    // ignore: unused_local_variable
     String dropDownValue = list.first;
 
     return Scaffold(
@@ -70,53 +69,35 @@ class _TambahSparState extends State<TambahSpar> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 24, right: 24),
-        child: Center(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Masukkan Data Anda"),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Column(
                 children: [
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.only(bottom: 20),
-                    child: DropdownMenu<String>(
-                      controller: olahragaController,
-                      initialSelection: list.first,
-                      onSelected: (String? value) {
+                    child: DropdownButtonFormField<String>(
+                      value: dropDownValue,
+                      onChanged: (String? value) {
                         setState(() {
                           dropDownValue = value!;
                         });
                       },
-                      dropdownMenuEntries:
-                          list.map<DropdownMenuEntry<String>>((String value) {
-                        return DropdownMenuEntry<String>(
+                      items: list.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
                           value: value,
-                          label: value,
+                          child: Text(value),
                         );
                       }).toList(),
-                      inputDecorationTheme: InputDecorationTheme(
-                        fillColor: const Color(0xffF1F0F5),
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(),
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextFormField(
-                    controller: hostNameController,
-                    decoration: InputDecoration(
+                      decoration: InputDecoration(
                         fillColor: Color(0xffF1F0F5),
                         filled: true,
                         enabledBorder: OutlineInputBorder(
@@ -127,8 +108,25 @@ class _TambahSparState extends State<TambahSpar> {
                           borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(),
                         ),
-                        labelText: 'Nama Club/Komunitas *',
-                        hintText: "Cth. Jaya Esport"),
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    controller: hostNameController,
+                    decoration: InputDecoration(
+                      fillColor: Color(0xffF1F0F5),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(),
+                      ),
+                      labelText: 'Nama Club/Komunitas *',
+                      hintText: "Cth. Jaya Esport",
+                    ),
                   ),
                   SizedBox(height: 20),
                   Padding(
@@ -191,35 +189,37 @@ class _TambahSparState extends State<TambahSpar> {
                   TextFormField(
                     controller: locationController,
                     decoration: InputDecoration(
-                        fillColor: Color(0xffF1F0F5),
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(),
-                        ),
-                        labelText: 'Lokasi *',
-                        hintText: "GOR Jayapura, Bekasi, Jawa Barat"),
+                      fillColor: Color(0xffF1F0F5),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(),
+                      ),
+                      labelText: 'Lokasi *',
+                      hintText: "GOR Jayapura, Bekasi, Jawa Barat",
+                    ),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
                     controller: hargaController,
                     decoration: InputDecoration(
-                        fillColor: Color(0xffF1F0F5),
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(),
-                        ),
-                        labelText: 'Harga *',
-                        hintText: "70.000"),
+                      fillColor: Color(0xffF1F0F5),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(),
+                      ),
+                      labelText: 'Harga *',
+                      hintText: "70.000",
+                    ),
                   ),
                   SizedBox(height: 20),
                   Align(
