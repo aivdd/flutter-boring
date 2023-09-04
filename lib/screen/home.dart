@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_boring/screen/kayuma.dart';
 import 'ferry.dart';
-import 'package:flutter_boring/screen/tambah_spar.dart';
 import 'taufik.dart';
 import 'gideon.dart';
 import 'package:flutter_boring/screen/spar_list.dart';
