@@ -59,7 +59,7 @@ class _KayumaPageState extends State<KayumaPage> {
                           borderRadius: BorderRadius.circular(40),
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage('images/jatiasih.jpeg'),
+                            image: AssetImage('assets/images/jatiasih.jpeg'),
                           ),
                         ),
                       ),

@@ -59,7 +59,7 @@ class _DetailPageState extends State<DetailPage> {
                           borderRadius: BorderRadius.circular(40),
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage('images/gideon.jpg'),
+                            image: AssetImage('assets/images/gideon.jpg'),
                           ),
                         ),
                       ),
@@ -129,7 +129,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           markers: Set<Marker>.from([
                             Marker(
-                              markerId: MarkerId("marker_id"),
+                              markerId: MarkerId("Gideon Badminton"),
                               position: LatLng(
                                 -6.355924335883751,
                                 106.95498093497488,

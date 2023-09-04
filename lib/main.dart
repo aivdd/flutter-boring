@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_boring/screen/history.dart';
 import 'package:flutter_boring/screen/home.dart';
-import 'package:flutter_boring/screen/ferry.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {

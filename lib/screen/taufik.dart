@@ -59,7 +59,7 @@ class _TaufikDetailState extends State<TaufikDetail> {
                           borderRadius: BorderRadius.circular(40),
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage('images/gor1.jpeg'),
+                            image: AssetImage('assets/images/gor1.jpeg'),
                           ),
                         ),
                       ),
@@ -134,7 +134,8 @@ class _TaufikDetailState extends State<TaufikDetail> {
                                 -6.355924335883751,
                                 106.95498093497488,
                               ),
-                              infoWindow: InfoWindow(title: "Marker Title"),
+                              infoWindow:
+                                  InfoWindow(title: "Taufik Hidayat Arena"),
                             ),
                           ]),
                         ),

@@ -98,7 +98,7 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: AssetImage('images/ginting.jpg'),
+                            image: AssetImage('assets/images/ginting.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -181,7 +181,7 @@ class _HomeState extends State<Home> {
                                                 image: DecorationImage(
                                                   fit: BoxFit.contain,
                                                   image: AssetImage(
-                                                      'images/gideon.jpg'),
+                                                      'assets/images/gideon.jpg'),
                                                 ),
                                               ),
                                             ),
@@ -245,7 +245,7 @@ class _HomeState extends State<Home> {
                                                 image: DecorationImage(
                                                   fit: BoxFit.contain,
                                                   image: AssetImage(
-                                                      'images/gor1.jpeg'),
+                                                      'assets/images/gor1.jpeg'),
                                                 ),
                                               ),
                                             ),
@@ -308,7 +308,7 @@ class _HomeState extends State<Home> {
                                                 image: DecorationImage(
                                                   fit: BoxFit.contain,
                                                   image: AssetImage(
-                                                      'images/jatiasih.jpeg'),
+                                                      'assets/images/jatiasih.jpeg'),
                                                 ),
                                               ),
                                             ),
@@ -370,7 +370,7 @@ class _HomeState extends State<Home> {
                                                 image: DecorationImage(
                                                   fit: BoxFit.contain,
                                                   image: AssetImage(
-                                                      'images/gideon2.jpg'),
+                                                      'assets/images/gideon2.jpg'),
                                                 ),
                                               ),
                                             ),
@@ -504,7 +504,7 @@ class _HomeState extends State<Home> {
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: AssetImage(
-                                                  'images/gideon.jpg'),
+                                                  'assets/images/gideon.jpg'),
                                             ),
                                           ),
                                         ),

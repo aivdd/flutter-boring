@@ -59,7 +59,7 @@ class _FerryPageState extends State<FerryPage> {
                           borderRadius: BorderRadius.circular(40),
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage('images/gideon2.jpg'),
+                            image: AssetImage('assets/images/gideon2.jpg'),
                           ),
                         ),
                       ),
