@@ -12,7 +12,7 @@ class TambahSpar extends StatefulWidget {
 
 class _TambahSparState extends State<TambahSpar> {
   final TextEditingController hostNameController = TextEditingController();
-  final TextEditingController olahragaController = TextEditingController();
+  late TextEditingController olahragaController = TextEditingController();
   final TextEditingController dateInputController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
   final TextEditingController hargaController = TextEditingController();
@@ -89,6 +89,7 @@ class _TambahSparState extends State<TambahSpar> {
                       onChanged: (String? value) {
                         setState(() {
                           dropDownValue = value!;
+                          olahragaController.text = dropDownValue;
                         });
                       },
                       items: list.map<DropdownMenuItem<String>>((String value) {
