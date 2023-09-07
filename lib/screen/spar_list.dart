@@ -94,15 +94,20 @@ class _SparListState extends State<SparList> {
                       SizedBox(height: 8),
                       Row(
                         children: [
-                          Container(
-                            width: 20,
-                            height: 20,
-                            child: Icon(Icons.location_on),
+                          Flexible(
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              child: Icon(Icons.location_on),
+                            ),
                           ),
                           SizedBox(width: 10),
-                          Text(
-                            sparring.location ?? '',
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                          Flexible(
+                            child: Text(
+                              sparring.locationAddress ?? '',
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.grey),
+                            ),
                           ),
                         ],
                       ),

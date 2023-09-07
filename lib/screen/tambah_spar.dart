@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boring/screen/pick_maps.dart';
 import 'package:flutter_boring/service/sparing.dart';
 import 'package:flutter_boring/model/sparing.dart';
 import 'package:intl/intl.dart';
@@ -12,9 +13,12 @@ class TambahSpar extends StatefulWidget {
 
 class _TambahSparState extends State<TambahSpar> {
   final TextEditingController hostNameController = TextEditingController();
-  late TextEditingController olahragaController = TextEditingController();
+  final TextEditingController olahragaController = TextEditingController();
   final TextEditingController dateInputController = TextEditingController();
-  final TextEditingController locationController = TextEditingController();
+  final TextEditingController locationLatController = TextEditingController();
+  final TextEditingController locationLngController = TextEditingController();
+  final TextEditingController locationAddressController =
+      TextEditingController();
   final TextEditingController hargaController = TextEditingController();
   final SparingService _sparingService = SparingService();
 
@@ -22,14 +26,18 @@ class _TambahSparState extends State<TambahSpar> {
     final String hostName = hostNameController.text;
     final String olahraga = olahragaController.text;
     final String dateTime = dateInputController.text;
-    final String location = locationController.text;
+    final String locationLat = locationLatController.text;
+    final String locationLng = locationLngController.text;
+    final String locationAddress = locationAddressController.text;
     final String harga = hargaController.text;
 
     Sparing newSparing = Sparing(
       hostName: hostName,
       olahraga: olahraga,
       playingTime: dateTime,
-      location: location,
+      locationLat: locationLat,
+      locationLng: locationLng,
+      locationAddress: locationAddress,
       harga: harga,
       guestName: null,
     );
@@ -47,6 +55,7 @@ class _TambahSparState extends State<TambahSpar> {
   @override
   Widget build(BuildContext context) {
     const List<String> list = <String>[
+      '-Pilih Olahraga-',
       'Futsal',
       'Badminton',
       'Volley',
@@ -188,7 +197,22 @@ class _TambahSparState extends State<TambahSpar> {
                   ),
                   SizedBox(height: 20),
                   TextFormField(
-                    controller: locationController,
+                    controller: locationAddressController,
+                    onTap: () async {
+                      final List<dynamic> pickedMaps = await Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PickMaps()),
+                      );
+                      if (pickedMaps.length == 3) {
+                        setState(() {
+                          locationLatController.text = pickedMaps[0];
+                          locationLngController.text = pickedMaps[1];
+                          locationAddressController.text = pickedMaps[2];
+                          print("Received Data: $pickedMaps");
+                        });
+                      }
+                    },
+                    readOnly: true,
                     decoration: InputDecoration(
                       fillColor: Color(0xffF1F0F5),
                       filled: true,
@@ -200,8 +224,10 @@ class _TambahSparState extends State<TambahSpar> {
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(),
                       ),
-                      labelText: 'Lokasi *',
-                      hintText: "GOR Jayapura, Bekasi, Jawa Barat",
+                      icon: Icon(Icons.location_on),
+                      labelText: locationLatController.text +
+                          locationLngController.text,
+                      hintText: locationAddressController.text,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -235,7 +261,7 @@ class _TambahSparState extends State<TambahSpar> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
