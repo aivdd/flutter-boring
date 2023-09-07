@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_boring/screen/pick_maps.dart';
 import 'package:flutter_boring/service/sparing.dart';
 import 'package:flutter_boring/model/sparing.dart';
@@ -19,7 +20,14 @@ class _TambahSparState extends State<TambahSpar> {
   final TextEditingController locationLngController = TextEditingController();
   final TextEditingController locationAddressController =
       TextEditingController();
-  final TextEditingController hargaController = TextEditingController();
+
+  final MoneyMaskedTextController hargaController = MoneyMaskedTextController(
+    initialValue: '0',
+    decimalSeparator: ',',
+    thousandSeparator: '.',
+  );
+  final currencyFormat = NumberFormat.currency(locale: 'id_ID', symbol: 'Rp');
+
   final SparingService _sparingService = SparingService();
 
   Future<void> _kirimDataKeFirestore() async {
@@ -29,7 +37,10 @@ class _TambahSparState extends State<TambahSpar> {
     final String locationLat = locationLatController.text;
     final String locationLng = locationLngController.text;
     final String locationAddress = locationAddressController.text;
-    final String harga = hargaController.text;
+    final String harga = currencyFormat.format(
+      double.parse(
+          hargaController.text.replaceAll('.', '').replaceAll(',', '')),
+    );
 
     Sparing newSparing = Sparing(
       hostName: hostName,
@@ -49,6 +60,25 @@ class _TambahSparState extends State<TambahSpar> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Terjadi kesalahan: $error')),
       );
+    }
+  }
+
+  bool _validator = false;
+  void _validateData() {
+    if (hostNameController.text.isNotEmpty &&
+        olahragaController.text.isNotEmpty &&
+        dateInputController.text.isNotEmpty &&
+        locationLatController.text.isNotEmpty &&
+        locationLngController.text.isNotEmpty &&
+        locationAddressController.text.isNotEmpty &&
+        hargaController.text.isNotEmpty) {
+      setState(() {
+        _validator = true;
+      });
+    } else {
+      setState(() {
+        _validator = false;
+      });
     }
   }
 
@@ -97,6 +127,7 @@ class _TambahSparState extends State<TambahSpar> {
                       value: dropDownValue,
                       onChanged: (String? value) {
                         setState(() {
+                          _validateData();
                           dropDownValue = value!;
                           olahragaController.text = dropDownValue;
                         });
@@ -123,6 +154,9 @@ class _TambahSparState extends State<TambahSpar> {
                   ),
                   TextFormField(
                     controller: hostNameController,
+                    onChanged: (value) {
+                      _validateData();
+                    },
                     decoration: InputDecoration(
                       fillColor: Color(0xffF1F0F5),
                       filled: true,
@@ -190,6 +224,7 @@ class _TambahSparState extends State<TambahSpar> {
                                 DateFormat('dd MMM yyyy HH:mm')
                                     .format(selectedDateTime);
                             dateInputController.text = formattedDate;
+                            _validateData();
                           }
                         }
                       },
@@ -198,6 +233,9 @@ class _TambahSparState extends State<TambahSpar> {
                   SizedBox(height: 20),
                   TextFormField(
                     controller: locationAddressController,
+                    onChanged: (value) {
+                      _validateData();
+                    },
                     onTap: () async {
                       final List<dynamic> pickedMaps = await Navigator.push(
                         context,
@@ -211,6 +249,7 @@ class _TambahSparState extends State<TambahSpar> {
                           print("Received Data: $pickedMaps");
                         });
                       }
+                      _validateData();
                     },
                     readOnly: true,
                     decoration: InputDecoration(
@@ -225,14 +264,16 @@ class _TambahSparState extends State<TambahSpar> {
                         borderSide: BorderSide(),
                       ),
                       icon: Icon(Icons.location_on),
-                      labelText: locationLatController.text +
-                          locationLngController.text,
+                      labelText: "Lokasi",
                       hintText: locationAddressController.text,
                     ),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
                     controller: hargaController,
+                    onChanged: (value) {
+                      _validateData();
+                    },
                     decoration: InputDecoration(
                       fillColor: Color(0xffF1F0F5),
                       filled: true,
@@ -247,12 +288,17 @@ class _TambahSparState extends State<TambahSpar> {
                       labelText: 'Harga *',
                       hintText: "70.000",
                     ),
+                    keyboardType: TextInputType.number, // Hanya angka.
+                    inputFormatters: [
+                      FilteringTextInputFormatter
+                          .digitsOnly, // Filter hanya angka.
+                    ],
                   ),
                   SizedBox(height: 20),
                   Align(
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton(
-                      onPressed: _kirimDataKeFirestore,
+                      onPressed: _validator ? _kirimDataKeFirestore : null,
                       style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 14, 52, 84),
                       ),
@@ -268,4 +314,48 @@ class _TambahSparState extends State<TambahSpar> {
       ),
     );
   }
+}
+
+class MoneyMaskedTextController extends TextEditingController {
+  MoneyMaskedTextController({
+    String initialValue = '0',
+    this.decimalSeparator = ',',
+    this.thousandSeparator = '.',
+  }) {
+    this.text = initialValue;
+    this.addListener(() {
+      final value = this.text;
+      final sanitizedValue = value
+          .replaceAll(thousandSeparator, '')
+          .replaceAll(decimalSeparator, '.');
+
+      if (sanitizedValue == '.' || sanitizedValue.isEmpty) {
+        this.value = TextEditingValue(
+          text: '0',
+          selection: TextSelection.collapsed(offset: 1),
+        );
+      } else {
+        final number = double.tryParse(sanitizedValue);
+        if (number != null) {
+          final formattedValue = NumberFormat.currency(
+            locale: 'id_ID',
+            symbol: 'Rp',
+            decimalDigits: 0,
+          ).format(number);
+          final newText = formattedValue
+              .replaceAll(thousandSeparator, '')
+              .replaceAll('.', thousandSeparator)
+              .replaceAll('Rp', '')
+              .trim();
+          this.value = TextEditingValue(
+            text: newText,
+            selection: TextSelection.collapsed(offset: newText.length),
+          );
+        }
+      }
+    });
+  }
+
+  final String decimalSeparator;
+  final String thousandSeparator;
 }

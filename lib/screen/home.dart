@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
                             child: Padding(
                               padding: EdgeInsets.only(top: 50, left: 40),
                               child: Text(
-                                'Hallo CUKURUKUKUKKK',
+                                'Hallo, Team 1',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
