@@ -100,10 +100,21 @@ class _ActivityState extends State<Activity> {
 
   void _activityDetail(Sparing sparing) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ActivityDetail(docId: sparing.docId!),
-        ));
+      context,
+      MaterialPageRoute(
+        builder: (context) => ActivityDetail(docId: sparing.docId!),
+      ),
+    ).then((result) {
+      if (result != null && result == true) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Data berhasil dihapus'),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    });
+
     print('Card clicked: ${sparing.docId}');
   }
 }

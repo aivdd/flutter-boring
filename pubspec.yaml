@@ -16,17 +16,38 @@ dependencies:
     intl: ^0.18.0
     open_street_map_search_and_pick: ^0.1.0
     location: ^5.0.3
+    flutter_swipe_detector: ^2.0.0
+    url_launcher: ^6.1.14
+
+flutter_native_splash:
+    color: '#ffffff'
+    image: 'assets/logo/boring.png'
+    android: true
+    ios: true
 
 dev_dependencies:
     flutter_lints: ^2.0.3
     flutter_test:
         sdk: flutter
+    flutter_launcher_icons: '^0.13.1'
 
-flutter_native_splash:
-color: '#42a5f5'
-image: assets/images/gideon.jpg
-android: true
-ios: true
+flutter_launcher_icons:
+    android: 'launcher_icon'
+    ios: true
+    image_path: 'assets/logo/boring.png'
+    min_sdk_android: 21 # android min sdk min:16, default 21
+    web:
+        generate: true
+        image_path: 'assets/logo/boring.png'
+        background_color: '#hexcode'
+        theme_color: '#hexcode'
+    windows:
+        generate: true
+        image_path: 'assets/logo/boring.png'
+        icon_size: 48 # min:48, max:256, default: 48
+    macos:
+        generate: true
+        image_path: 'assets/logo/boring.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
