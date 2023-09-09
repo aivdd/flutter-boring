@@ -24,6 +24,21 @@ class SparingService {
         .toList();
   }
 
+  Future<Sparing?> getSparingByDocId(String docId) async {
+    try {
+      DocumentSnapshot snapshot = await sparingCollection.doc(docId).get();
+
+      if (snapshot.exists) {
+        return Sparing.fromFirestore(snapshot);
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print('Error getting sparing document: $e');
+      return null;
+    }
+  }
+
   Future<void> addSparing(Sparing sparing) async {
     await sparingCollection.add(sparing.toFirestore());
   }

@@ -5,7 +5,9 @@ class Sparing {
   final String? hostName;
   final String? olahraga;
   final String? playingTime;
-  final String? location;
+  final String? locationLat;
+  final String? locationLng;
+  final String? locationAddress;
   final String? harga;
   final String? guestName;
 
@@ -14,7 +16,9 @@ class Sparing {
     this.hostName,
     this.olahraga,
     this.playingTime,
-    this.location,
+    this.locationLat,
+    this.locationLng,
+    this.locationAddress,
     this.harga,
     this.guestName,
   });
@@ -28,7 +32,9 @@ class Sparing {
       hostName: data['hostName'],
       olahraga: data['olahraga'],
       playingTime: data['playingTime'],
-      location: data['location'],
+      locationLat: data['locationLat'],
+      locationLng: data['locationLng'],
+      locationAddress: data['locationAddress'],
       harga: data['harga'],
       guestName: data['guestName'],
     );
@@ -39,7 +45,9 @@ class Sparing {
       if (hostName != null) "hostName": hostName,
       if (olahraga != null) "olahraga": olahraga,
       if (playingTime != null) "playingTime": playingTime,
-      if (location != null) "location": location,
+      if (locationLat != null) "locationLat": locationLat,
+      if (locationLng != null) "locationLng": locationLng,
+      if (locationAddress != null) "locationAddress": locationAddress,
       if (harga != null) "harga": harga,
       "guestName": guestName,
     };

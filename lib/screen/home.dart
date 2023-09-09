@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_boring/screen/kayuma.dart';
 import 'ferry.dart';
 import 'taufik.dart';
@@ -36,7 +35,7 @@ class _HomeState extends State<Home> {
                             child: Padding(
                               padding: EdgeInsets.only(top: 50, left: 40),
                               child: Text(
-                                'Hallo CUKURUKUKUKKK',
+                                'Hallo, Team 1',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -472,7 +471,7 @@ class _HomeState extends State<Home> {
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
-                                                Text('Bekasi Club',
+                                                Text('BIU CLUB',
                                                     style: TextStyle(
                                                         fontSize: 30)),
                                                 SizedBox(height: 8),
@@ -483,7 +482,7 @@ class _HomeState extends State<Home> {
                                                                 .fromARGB(
                                                             255, 0, 55, 100)),
                                                     SizedBox(width: 4),
-                                                    Text('Jatiasih, Bekasi'),
+                                                    Text('Sleman, Yogyakarta'),
                                                   ],
                                                 ),
                                                 SizedBox(height: 8),
@@ -502,7 +501,7 @@ class _HomeState extends State<Home> {
                                                 ),
                                                 SizedBox(height: 8),
                                                 Text(
-                                                  'Deskripsi: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
+                                                  'Description: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
                                                 ),
                                                 SizedBox(height: 16),
                                                 ElevatedButton(
@@ -539,14 +538,108 @@ class _HomeState extends State<Home> {
                                     child: Container(
                                       margin: EdgeInsets.symmetric(
                                           vertical: 8, horizontal: 8),
-                                      width: 160,
+                                      width: 180,
                                       height: 120,
                                       child: Card(
                                         color: Colors.grey[300],
-                                         child: ListTile(
+                                        child: ListTile(
+                                          leading:
+                                              CircleAvatar(child: Text('U')),
+                                          title: Text('UGM CLUB'),
+                                          subtitle: Text('Yogyakarta'),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(20.0)),
+                                        ),
+                                        builder: (BuildContext context) {
+                                          return Container(
+                                            padding: EdgeInsets.all(16.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text('BIU CLUB',
+                                                    style: TextStyle(
+                                                        fontSize: 30)),
+                                                SizedBox(height: 8),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.location_on,
+                                                        color: const Color
+                                                                .fromARGB(
+                                                            255, 0, 55, 100)),
+                                                    SizedBox(width: 4),
+                                                    Text('Rawa Lumbu, Bekasi'),
+                                                  ],
+                                                ),
+                                                SizedBox(height: 8),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.phone,
+                                                        color: Color.fromRGBO(
+                                                            3,
+                                                            44,
+                                                            78,
+                                                            1)), // Tambahkan ikon telepon
+                                                    SizedBox(width: 4),
+                                                    Text(
+                                                        '085775064435'), // Tambahkan teks nomor telepon
+                                                  ],
+                                                ),
+                                                SizedBox(height: 8),
+                                                Text(
+                                                  'Description: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
+                                                ),
+                                                SizedBox(height: 16),
+                                                ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context)
+                                                        .pop(); // Untuk menutup modal
+                                                  },
+                                                  child: Text(
+                                                    'Tutup',
+                                                    style: TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              255,
+                                                              255,
+                                                              255),
+                                                    ), // Warna teksnya menjadi merah
+                                                  ),
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    primary: Color.fromARGB(
+                                                        255,
+                                                        10,
+                                                        0,
+                                                        115), // Warna latar belakang tetap putih
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 8),
+                                      width: 180,
+                                      height: 120,
+                                      child: Card(
+                                        color: Colors.grey[300],
+                                        child: ListTile(
                                           leading:
                                               CircleAvatar(child: Text('B')),
-                                          title: Text('Bekasi Club'),
+                                          title: Text('BIU CLUB'),
                                           subtitle: Text('Bekasi'),
                                         ),
                                       ),
@@ -573,89 +666,11 @@ class _HomeState extends State<Home> {
                                                 Row(
                                                   children: [
                                                     Icon(Icons.location_on,
-                                                        color: Colors.blue),
-                                                    SizedBox(width: 4),
-                                                    Text(
-                                                        'Lokasi: Rawa Lumbu, Bekasi'),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 8),
-                                                Text(
-                                                  'Deskripsi: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
-                                                ),
-                                                SizedBox(height: 16),
-                                                ElevatedButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context)
-                                                        .pop(); // Untuk menutup modal
-                                                  },
-                                                  child: Text(
-                                                    'Tutup',
-                                                    style: TextStyle(
-                                                        color: const Color
-                                                                .fromARGB(
-                                                            255,
-                                                            255,
-                                                            255,
-                                                            255)), // Warna teksnya menjadi merah
-                                                  ),
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    primary: Color.fromARGB(
-                                                        255,
-                                                        10,
-                                                        0,
-                                                        115), // Warna latar belakang tetap putih
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                    child: Container(
-                                      margin: EdgeInsets.symmetric(
-                                          vertical: 8, horizontal: 8),
-                                      width: 160,
-                                      height: 120,
-                                      child: Card(
-                                        color: Colors.grey[300],
-                                        child: ListTile(
-                                          leading:
-                                              CircleAvatar(child: Text('B')),
-                                          title: Text('Bekasi Club'),
-                                          subtitle: Text('Lokasi: Bekasi'),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                        context: context,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.0)),
-                                        ),
-                                        builder: (BuildContext context) {
-                                          return Container(
-                                            padding: EdgeInsets.all(16.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Text('Bekasi Club',
-                                                    style: TextStyle(
-                                                        fontSize: 30)),
-                                                SizedBox(height: 8),
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons.location_on,
                                                         color: const Color
                                                                 .fromARGB(
                                                             255, 0, 55, 100)),
                                                     SizedBox(width: 4),
-                                                    Text('Jatiasih, Bekasi'),
+                                                    Text('Pondok Cina, Depok'),
                                                   ],
                                                 ),
                                                 SizedBox(height: 8),
@@ -674,7 +689,7 @@ class _HomeState extends State<Home> {
                                                 ),
                                                 SizedBox(height: 8),
                                                 Text(
-                                                  'Deskripsi: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
+                                                  'Description: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
                                                 ),
                                                 SizedBox(height: 16),
                                                 ElevatedButton(
@@ -711,15 +726,15 @@ class _HomeState extends State<Home> {
                                     child: Container(
                                       margin: EdgeInsets.symmetric(
                                           vertical: 8, horizontal: 8),
-                                      width: 160,
+                                      width: 180,
                                       height: 120,
                                       child: Card(
                                         color: Colors.grey[300],
                                         child: ListTile(
                                           leading:
-                                              CircleAvatar(child: Text('B')),
-                                          title: Text('Bekasi Club'),
-                                          subtitle: Text('Lokasi: Bekasi'),
+                                              CircleAvatar(child: Text('U')),
+                                          title: Text('UI CLUB'),
+                                          subtitle: Text('Depok'),
                                         ),
                                       ),
                                     ),
