@@ -52,14 +52,22 @@ class _TaufikDetailState extends State<TaufikDetail> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        width: 300,
+                        width: double.infinity,
                         height: 200,
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(40),
-                          image: DecorationImage(
+                          borderRadius: BorderRadius.circular(
+                              40), // Mengatur border radius ke 40
+                          // Anda juga dapat menambahkan warna latar belakang jika diperlukan
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          // Gunakan ClipRRect untuk menerapkan border radius ke gambar
+                          borderRadius: BorderRadius.circular(
+                              40), // Sesuai dengan border radius di atas
+                          child: Image.asset(
+                            'assets/images/gor1.jpeg',
                             fit: BoxFit.cover,
-                            image: AssetImage('assets/images/gor1.jpeg'),
                           ),
                         ),
                       ),

@@ -16,8 +16,9 @@ dependencies:
     firebase_core: ^2.15.1
     cloud_firestore: ^4.9.0
     web_date_picker: ^1.0.0+3
-    google_maps_flutter: ^2.2.3
+    google_maps_flutter: ^2.5.0
     flutter_native_splash: ^2.3.2
+    flutter_lints: ^2.0.3
     intl: ^0.17.0
 
 
@@ -29,8 +30,7 @@ flutter_native_splash:
 color: "#42a5f5"
 image: assets/images/gideon.jpg
 android: true
-ios: true
-web: true
+
 
    
    
