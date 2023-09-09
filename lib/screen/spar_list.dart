@@ -167,6 +167,7 @@ class _SparListState extends State<SparList> {
         },
         child: Icon(Icons.add, color: Colors.white),
         backgroundColor: Color.fromARGB(255, 14, 52, 84),
+        shape: CircleBorder(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
