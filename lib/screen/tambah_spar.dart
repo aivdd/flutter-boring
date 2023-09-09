@@ -86,10 +86,21 @@ class _TambahSparState extends State<TambahSpar> {
   Widget build(BuildContext context) {
     const List<String> list = <String>[
       '-Pilih Olahraga-',
-      'Futsal',
       'Badminton',
+      'Baseball',
+      'Basket',
+      'Balap',
+      'Casino',
+      'Duel',
+      'e-Sport',
+      'Futsal',
+      'Football',
+      'Golf',
+      'Hiking',
+      'MiniSoccer',
+      'Renang',
+      'Tennis',
       'Volley',
-      'Tennis'
     ];
 
     String dropDownValue = list.first;

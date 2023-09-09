@@ -31,6 +31,7 @@ class _ActivityDetailState extends State<ActivityDetail> {
   Future<void> _deleteSparing() async {
     try {
       await sparingService.deleteSparing(widget.docId);
+      _hideBottomSheet();
       Navigator.pop(context, true);
     } catch (e) {
       print('Error deleting sparing: $e');
@@ -269,7 +270,13 @@ class _ActivityDetailState extends State<ActivityDetail> {
             );
           } else if (snapshot.hasError || snapshot.data == null) {
             return Center(
-              child: Text('Error loading data'),
+              child: Text(
+                'Error loading data',
+                style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 0, 46, 102)),
+              ),
             );
           } else {
             Sparing sparing = snapshot.data!;

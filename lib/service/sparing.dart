@@ -6,7 +6,11 @@ class SparingService {
       FirebaseFirestore.instance.collection('sparing');
 
   Stream<List<Sparing>> getSparingsStream() {
-    return sparingCollection.snapshots().map((snapshot) {
+    return sparingCollection
+        .orderBy("hostName", descending: false)
+        .limit(10)
+        .snapshots()
+        .map((snapshot) {
       return snapshot.docs
           .map((doc) => Sparing.fromFirestore(doc))
           .where((sparing) => sparing.guestName == null)
@@ -15,7 +19,8 @@ class SparingService {
   }
 
   Future<List<Sparing>> getSparingActivity() async {
-    final querySnapshot = await sparingCollection.get();
+    final querySnapshot =
+        await sparingCollection.orderBy("playingTime", descending: false).get();
     return querySnapshot.docs
         .map((doc) {
           return Sparing.fromFirestore(doc);

@@ -17,6 +17,7 @@ class _SparListState extends State<SparList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black12,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 14, 52, 84),
         title: Text('Cari Sparring', style: TextStyle(color: Colors.white)),
@@ -34,16 +35,21 @@ class _SparListState extends State<SparList> {
         stream: _sparingService.getSparingsStream(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           }
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Text("Tidak ada data sparring.");
+            return Center(
+              child: Text("Tidak ada data sparing"),
+            );
           }
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               Sparing sparring = snapshot.data![index];
               return Card(
+                margin: EdgeInsets.all(10),
                 color: Colors.white,
                 elevation: 5,
                 child: Padding(
