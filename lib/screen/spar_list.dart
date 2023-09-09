@@ -17,7 +17,7 @@ class _SparListState extends State<SparList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black12,
+      backgroundColor: Color.fromARGB(255, 217, 217, 217),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 14, 52, 84),
         title: Text('Cari Sparring', style: TextStyle(color: Colors.white)),
